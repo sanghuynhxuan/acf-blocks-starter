@@ -1,28 +1,20 @@
 <?php
 /**
  * Plugin Name: ACF Blocks Starter
- * Description: A modern Advanced Custom Fields block starter for flexible WordPress content experiences.
- * Version: 0.1.0
- * Author: Sang Huynh Xuan
- * License: GPL-2.0-or-later
+ * Description: Registers a server-rendered ACF feature block.
+ * Version: 1.0.0
  */
-
-declare(strict_types=1);
-
-namespace SangPortfolio;
-
-if (! defined('ABSPATH')) {
-    exit;
-}
-
-final class AcfBlocksStarterPlugin {
-    public function __construct() {
-        add_action('init', [$this, 'bootstrap']);
-    }
-
-    public function bootstrap(): void {
-        do_action('sang_portfolio_acf_blocks_starter_ready');
-    }
-}
-
-new AcfBlocksStarterPlugin();
+if (! defined('ABSPATH')) { exit; }
+require_once __DIR__ . '/blocks/feature/fields.php';
+add_action('acf/init', static function (): void {
+    if (! function_exists('acf_register_block_type')) { return; }
+    acf_register_block_type([
+        'name' => 'sang-feature',
+        'title' => __('Sang Feature', 'sang-acf'),
+        'description' => __('Feature card rendered with ACF fields.', 'sang-acf'),
+        'render_template' => __DIR__ . '/blocks/feature/render.php',
+        'category' => 'widgets',
+        'icon' => 'star-filled',
+        'supports' => ['align' => ['wide', 'full']],
+    ]);
+});
