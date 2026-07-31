@@ -1,19 +1,5 @@
 # ACF Blocks Starter
 
-A modern Advanced Custom Fields block starter for flexible WordPress content experiences.
+A working server-rendered ACF block with field definitions, template output, alignment support, and safe escaping.
 
-## Client value
-
-Custom editorial blocks, maintainable fields, and content-team-friendly workflows.
-
-This public reference implementation demonstrates a maintainable approach to WordPress and WooCommerce client work: clean extension points, predictable deployment, and focused code.
-
-## What this starter includes
-
-- A focused entry point for the stated use case
-- A clear foundation for client-specific customization
-- An intentionally compact structure for safe iteration
-
-## Notes
-
-This repository is a focused portfolio starter, not a replacement for a full discovery, QA, or production deployment process.
+Activate it with ACF Pro installed, then add **Sang Feature** in the block editor.
