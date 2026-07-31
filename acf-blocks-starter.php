@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: ACF Blocks Starter
- * Description: Registers a server-rendered ACF feature block.
+ * Description: A ready-to-use server-rendered ACF feature block.
  * Version: 1.0.0
+ * Requires Plugins: advanced-custom-fields-pro
  */
 if (! defined('ABSPATH')) { exit; }
-require_once __DIR__ . '/blocks/feature/fields.php';
 add_action('acf/init', static function (): void {
-    if (! function_exists('acf_register_block_type')) { return; }
+    require_once __DIR__ . '/blocks/feature/fields.php';
     acf_register_block_type([
         'name' => 'sang-feature',
         'title' => __('Sang Feature', 'sang-acf'),
